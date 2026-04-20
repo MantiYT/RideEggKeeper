@@ -1,0 +1,7 @@
+name: RideEggKeeper
+version: '1.0'
+main: ru.mantiyt.rideeggkeeper.RideEggKeeper
+api-version: '1.16'
+commands:
+  rideeggkeeper: {}
+  eggkeeper: {}

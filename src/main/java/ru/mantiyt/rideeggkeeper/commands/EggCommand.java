@@ -126,7 +126,6 @@ public class EggCommand implements CommandExecutor, TabCompleter {
             }
         }
 
-        // Дроп на землю если инвентарь полон
         final int finalRemaining = remaining;
         Bukkit.getScheduler().runTask(RideEggKeeper.getInstance(), () -> {
             ItemStack drop = itemStack.clone();

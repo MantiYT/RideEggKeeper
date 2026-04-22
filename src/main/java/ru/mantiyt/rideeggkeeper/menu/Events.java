@@ -1,6 +1,5 @@
 package ru.mantiyt.rideeggkeeper.menu;
 
-import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,16 +10,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import ru.mantiyt.rideeggkeeper.RideEggKeeper;
+import java.util.Random;
 
 public class Events implements Listener {
     private final Random random = new Random();
 
     @EventHandler
     public void on(InventoryClickEvent event) {
-        if (event.getInventory().getHolder() != RideEggKeeper.holder) return;
-
+        if (event.getInventory().getHolder() != MenuHolder.INSTANCE) return;
         event.setCancelled(true);
-
         if (event.getClickedInventory() != event.getInventory()) return;
 
         Player player = (Player) event.getWhoClicked();

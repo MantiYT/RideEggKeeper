@@ -1,7 +1,5 @@
 package ru.mantiyt.rideeggkeeper.commands;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -13,6 +11,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import ru.mantiyt.rideeggkeeper.RideEggKeeper;
 import ru.mantiyt.rideeggkeeper.menu.Menu;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EggCommand implements CommandExecutor, TabCompleter {
     private final Menu menu = new Menu();
@@ -88,11 +88,11 @@ public class EggCommand implements CommandExecutor, TabCompleter {
         String typeName;
         switch (args[2].toLowerCase()) {
             case "oskol":
-                item = RideEggKeeper.itemEgg.getOskolEgg(count);
+                item = RideEggKeeper.getInstance().getItemEgg().getOskolEgg(count);
                 typeName = "осколочных яиц";
                 break;
             case "ender":
-                item = RideEggKeeper.itemEgg.getEnderEgg(count);
+                item = RideEggKeeper.getInstance().getItemEgg().getEnderEgg(count);
                 typeName = "эндер яиц";
                 break;
             default:
@@ -138,7 +138,7 @@ public class EggCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> completions = new ArrayList<>();
 
-        if (!command.getName().equalsIgnoreCase("holyeggkeeper") || !sender.hasPermission("holyeggkeeper.admin")) {
+        if (!command.getName().equalsIgnoreCase("rideeggkeeper") || !sender.hasPermission("rideeggkeeper.admin")) {
             return completions;
         }
 
